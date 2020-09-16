@@ -9,7 +9,7 @@ class LanguageView(viewsets.ModelViewSet):
     queryset = Language.objects.all()
     serializer_class = LanguageSerializer
     #permission_classes = (permissions.IsAuthenticatedOrReadOnly,)
-    permission_classes = (permissions.IsAuthenticated,)
+    #permission_classes = (permissions.IsAuthenticated,)
 
 class ParadigmView(viewsets.ModelViewSet):
     queryset = Paradigm.objects.all()
