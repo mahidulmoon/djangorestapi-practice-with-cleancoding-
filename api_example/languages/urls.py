@@ -1,13 +1,12 @@
-
-from django.urls import path,include
-from . import views
 from rest_framework import routers
+from django.urls import path,include
+from .views import LanguageView,ParadigmView,ProgrammerView
 
 
 router = routers.DefaultRouter()
-router.register('languages',views.LanguageView)
-
-
+router.register('languages',LanguageView)
+router.register('paradigm',ParadigmView)
+router.register('programmer',ProgrammerView)
 
 
 
@@ -15,5 +14,5 @@ router.register('languages',views.LanguageView)
 
 
 urlpatterns = [
-    path('',include(router.urls))
+    path('',include(router.urls)),
 ]
