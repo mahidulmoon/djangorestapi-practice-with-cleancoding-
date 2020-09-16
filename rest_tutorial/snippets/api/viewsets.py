@@ -33,7 +33,7 @@ class SnippetViewSet(viewsets.ModelViewSet):
     filter_backends = (DjangoFilterBackend,SearchFilter)
     filterset_class = SnippetFilter
     # filter_fields = ('title','created')
-    # search_fields = ('id','title')
+    search_fields = ('id','title')
     
 
 
