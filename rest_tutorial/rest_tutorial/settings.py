@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'snippets',
     'rest_framework',
     'rest_framework.authtoken',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,9 @@ WSGI_APPLICATION = 'rest_tutorial.wsgi.application'
 #     'DEFAULT_PERMISSION_CLASSES':(
 #         'rest_framework.permissions.IsAuthenticated'
 #     )
+# }
+# REST_FRAMEWORK={
+#     'DEFUALT_FILTER_BACKENDS':('django_filters.rest_framework.DjangoFilterBackend',)
 # }
 
 # Database
