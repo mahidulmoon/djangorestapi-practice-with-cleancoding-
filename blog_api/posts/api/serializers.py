@@ -14,3 +14,9 @@ class PostDetailSerializer(serializers.ModelSerializer):
         fields = '__all__'
         lookup_field = 'slug'
         
+
+class PostCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Post
+        fields = ('title','draft','publish','read_time')
+        
