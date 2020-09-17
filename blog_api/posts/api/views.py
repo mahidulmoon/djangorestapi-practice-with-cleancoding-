@@ -5,11 +5,13 @@ from rest_framework.permissions import AllowAny,IsAuthenticated,IsAdminUser,IsAu
 from .permissions import IsOwnerOrReadOnly
 from django.db.models import Q
 from rest_framework.filters import SearchFilter,OrderingFilter
+from .pagination import PostLimitOffsetPagination,PostPageNumberPagination
 class PostListApiView(ListAPIView):
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     filter_backends = [SearchFilter,OrderingFilter]
     search_fields = ['id','title']
+    pagination_class = PostPageNumberPagination
     # def get_queryset(self,*args,**kwargs):
     #     queryset_list = Post.objects.all()
     #     query = self.request.GET.get['q']
