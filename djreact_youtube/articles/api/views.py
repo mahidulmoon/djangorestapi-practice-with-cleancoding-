@@ -4,6 +4,7 @@ from articles.models import Article
 from django.contrib.auth.models import User
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
+from .pagination import ListPagination
 
 class ArticleListVieW(ListAPIView):
     queryset = Article.objects.all()
@@ -34,6 +35,7 @@ class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     permission_classes = (IsAuthenticated,)
+    pagination_class = ListPagination
 
 
 class UserCreateViewSet(viewsets.ModelViewSet):
