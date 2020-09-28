@@ -21,4 +21,5 @@ urlpatterns = [
     #path('api-auth/',include('rest_framework.urls')),
     path('api/',include('articles.api.urls')),
     path('logintoken/',TokenObtainPairView.as_view()),
+    path('logintoken/refresh/',TokenRefreshView.as_view()),
 ]
