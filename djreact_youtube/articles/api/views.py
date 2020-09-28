@@ -6,6 +6,7 @@ from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 from .pagination import ListPagination
 from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter
 
 class ArticleListVieW(ListAPIView):
     queryset = Article.objects.all()
@@ -37,8 +38,9 @@ class ArticleViewSet(viewsets.ModelViewSet):
     serializer_class = ArticleSerializer
     permission_classes = (IsAuthenticated,)
     pagination_class = ListPagination
-    filter_backends = [DjangoFilterBackend]
+    filter_backends = [DjangoFilterBackend,SearchFilter]
     filter_fields = ('id','title')
+    search_fields = ('id','content')
 
 
 class UserCreateViewSet(viewsets.ModelViewSet):
