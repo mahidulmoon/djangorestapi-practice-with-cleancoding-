@@ -1,10 +1,11 @@
 from django.urls import path,include
 from rest_framework import routers
-from .views import ArticleListVieW,ArticleDetailVieW,ArticleCreateVieW,ArticleUpdateVieW,ArticleDeleteVieW,ArticleViewSet
+from .views import UserCreateViewSet,ArticleListVieW,ArticleDetailVieW,ArticleCreateVieW,ArticleUpdateVieW,ArticleDeleteVieW,ArticleViewSet
 
 
 router = routers.DefaultRouter()
 router.register('articleviewset',ArticleViewSet)
+router.register('createuser',UserCreateViewSet)
 
 urlpatterns = [
     path('',include(router.urls)),

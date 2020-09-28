@@ -1,6 +1,7 @@
 from rest_framework.generics import ListAPIView,RetrieveAPIView,CreateAPIView,UpdateAPIView,DestroyAPIView
-from .serializers import ArticleSerializer
+from .serializers import ArticleSerializer,UserRegistrationSerializer
 from articles.models import Article
+from django.contrib.auth.models import User
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
@@ -33,3 +34,8 @@ class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
     permission_classes = (IsAuthenticated,)
+
+
+class UserCreateViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserRegistrationSerializer
