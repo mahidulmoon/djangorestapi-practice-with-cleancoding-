@@ -2,6 +2,7 @@ from rest_framework.generics import ListAPIView,RetrieveAPIView,CreateAPIView,Up
 from .serializers import ArticleSerializer
 from articles.models import Article
 from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
 
 class ArticleListVieW(ListAPIView):
     queryset = Article.objects.all()
@@ -31,3 +32,4 @@ class ArticleDeleteVieW(DestroyAPIView):
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    permission_classes = (IsAuthenticated,)
