@@ -1,7 +1,13 @@
-from django.urls import path
-from .views import ArticleListVieW,ArticleDetailVieW,ArticleCreateVieW,ArticleUpdateVieW,ArticleDeleteVieW
+from django.urls import path,include
+from rest_framework import routers
+from .views import ArticleListVieW,ArticleDetailVieW,ArticleCreateVieW,ArticleUpdateVieW,ArticleDeleteVieW,ArticleViewSet
+
+
+router = routers.DefaultRouter()
+router.register('articleviewset',ArticleViewSet)
 
 urlpatterns = [
+    path('',include(router.urls)),
     path('articlelist/',ArticleListVieW.as_view()),
     path('articledetails/<int:pk>/',ArticleDetailVieW.as_view()),
     path('articlecreate/',ArticleCreateVieW.as_view()),
